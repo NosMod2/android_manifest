@@ -25,7 +25,7 @@ GIT config (nickname, e-mail)
 To initialize your local repository use
 ---------------------------------------
 
-    repo init -u https://github.com/NOSMod/android_manifest.git -b p
+    repo init -u https://github.com/NosMod2/android_manifest.git -b p
 
 Then to sync up:
 ----------------
