@@ -9,8 +9,12 @@
         fetch="https://github.com/nitrogen-project"
         sync-j="16" />
 
+    <remote name="mod"
+        fetch="https://github.com/NOSMod"
+        sync-j="16" />
+
     <!-- general -->
-    <project path="build/make" name="android_build_make" remote="nos" revision="p" >
+    <project path="build/make" name="android_build_make" remote="mod" revision="p" >
         <copyfile src="core/root.mk" dest="Makefile" />
         <linkfile src="CleanSpec.mk" dest="build/CleanSpec.mk" />
         <linkfile src="buildspec.mk.default" dest="build/buildspec.mk.default" />
@@ -25,11 +29,13 @@
         <linkfile src="bootstrap.bash" dest="bootstrap.bash" />
     </project>
 
-    <project path="bionic" name="android_bionic" remote="nos" revision="p"/>
+    <project path="bionic" name="android_bionic" remote="mod" revision="p"/>
 
     <project path="bootable/recovery" name="android_bootable_recovery" remote="nos" revision="p" />
 
     <!-- external -->
+    <project path="external/selinux" name="android_external_selinux" remote="mod" revision="p" />
+    <project path="external/perfetto" name="android_external_perfetto" remote="mod" revision="p" />
     <project path="external/ant-wireless/antradio-library" name="android_external_ant-wireless_antradio-library" remote="nos" revision="p" />
     <project path="external/ant-wireless/ant_native" name="android_external_ant-wireless_ant_native" remote="nos" revision="p" />
     <project path="external/ant-wireless/ant_service" name="android_external_ant-wireless_ant_service" remote="nos" revision="p" />
@@ -40,7 +46,7 @@
 
     <!-- system -->
     <project path="system/bt" name="android_system_bt" remote="nos" revision="p" />
-    <project path="system/core" name="android_system_core" remote="nos" revision="p" />
+    <project path="system/core" name="android_system_core" remote="mod" revision="p" />
     <project path="system/extras" name="android_system_extras" remote="nos" revision="p" />
     <project path="system/sepolicy" name="android_system_sepolicy" remote="nos" revision="p" />
     <project path="system/vold" name="android_system_vold" remote="nos" revision="p" />
@@ -48,28 +54,29 @@
     <!-- hardware -->
     <project path="hardware/libhardware" name="android_hardware_libhardware" remote="nos" revision="p" />
     <project path="hardware/qcom/audio" name="android_hardware_qcom_audio" remote="nos" revision="p" />
-    <project path="hardware/qcom/audio-caf-msm8996" name="android_hardware_qcom_audio-caf-msm8996" remote="nos" revision="p" />
+    <project path="hardware/qcom/audio-caf-msm8916" name="android_hardware_qcom_audio-caf-msm8916" remote="mod" revision="p" />
     <project path="hardware/qcom/display" name="android_hardware_qcom_display" remote="nos" revision="p" />
-    <project path="hardware/qcom/display-caf-msm8996" name="android_hardware_qcom_display-caf-msm8996" remote="nos" revision="p" />
+    <project path="hardware/qcom/display-caf-msm8916" name="android_hardware_qcom_display-caf-msm8916" remote="mod" revision="p" />
     <project path="hardware/qcom/media" name="android_hardware_qcom_media" remote="nos" revision="p" />
-    <project path="hardware/qcom/media-caf-msm8996" name="android_hardware_qcom_media-caf-msm8996" remote="nos" revision="p" />
+    <project path="hardware/qcom/media-caf-msm8916" name="android_hardware_qcom_media-caf-msm8916" remote="mod" revision="p" />
     <project path="hardware/qcom/gps" name="android_hardware_qcom_gps" remote="nos" revision="p" />
     <project path="hardware/nxp/nfc" name="android_hardware_nxp_nfc" remote="nos" revision="p" />
     <project path="hardware/interfaces" name="android_hardware_interfaces" remote="nos" revision="p" />
     <project path="hardware/qcom/bt" name="android_hardware_qcom_bt" remote="nos" revision="p" />
+    <project path="hardware/qcom/bt-caf" name="android_hardware_qcom_bt-caf" remote="mod" revision="p-caf" />
     <project path="hardware/ril" name="android_hardware_ril" remote="nos" revision="p" />
 
     <!-- frameworks -->
     <project path="frameworks/av" name="android_frameworks_av" remote="nos" revision="p" />
-    <project path="frameworks/base" name="android_frameworks_base" remote="nos" revision="p" />
+    <project path="frameworks/base" name="android_frameworks_base" remote="mod" revision="p" />
     <project path="frameworks/compile/mclinker" name="android_frameworks_compile_mclinker" remote="nos" revision="p" />
     <project path="frameworks/opt/net/wifi" name="android_frameworks_opt_net_wifi" remote="nos" revision="p" />
     <project path="frameworks/opt/telephony" name="android_frameworks_opt_telephony" remote="nos" revision="p" />
-    <project path="frameworks/native" name="android_frameworks_native" remote="nos" revision="p" />
+    <project path="frameworks/native" name="android_frameworks_native" remote="mod" revision="p" />
 
     <!-- packages -->
-    <project path="packages/apps/NitrogenSettings" name="android_packages_apps_NitrogenSettings" remote="nos" revision="p" />
-    <project path="packages/apps/Settings" name="android_packages_apps_Settings" remote="nos" revision="p" />
+    <project path="packages/apps/NitrogenSettings" name="android_packages_apps_NitrogenSettings" remote="mod" revision="p" />
+    <project path="packages/apps/Settings" name="android_packages_apps_Settings" remote="mod" revision="p" />
     <project path="packages/inputmethods/LatinIME" name="android_packages_inputmethods_LatinIME" remote="nos" revision="p" />
     <project path="packages/apps/Dialer" name="android_packages_apps_Dialer" remote="nos" revision="p" />
     <project path="packages/apps/Launcher3" name="android_packages_apps_Launcher3" remote="nos" revision="p" />
@@ -84,17 +91,12 @@
     <project path="packages/services/Telecomm" name="android_packages_services_Telecomm" remote="nos" revision="p" />
 
     <!-- vendor -->
-    <project path="vendor/nitrogen" name="android_vendor_nitrogen" remote="nos" revision="p" />
+    <project path="vendor/nitrogen" name="android_vendor_nitrogen" remote="mod" revision="p" />
     <project path="vendor/qcom/opensource/dataservices" name="android_vendor_qcom_opensource_dataservices" remote="nos" revision="p" />
     <project path="vendor/qcom/opensource/interfaces" name="android_vendor_qcom_opensource_interfaces" remote="nos" revision="p" />
     <project path="vendor/qcom/opensource/dpm" name="android_vendor_qcom_opensource_dpm" remote="nos" revision="p" />
     <project path="vendor/qcom/opensource/audio" name="android_vendor_qcom_opensource_audio" remote="nos" revision="p" />
     <project path="vendor/codeaurora/telephony" name="android_vendor_codeaurora_telephony" remote="nos" revision="p" />
-
-    <!-- oneplus3 -->
-    <project path="device/oneplus/oneplus3" name="android_device_oneplus_oneplus3" remote="nos" revision="p" />
-    <project path="vendor/oneplus" name="proprietary_vendor_oneplus" remote="nos" revision="p" />
-    <project path="kernel/oneplus/msm8996" name="android_kernel_oneplus_msm8996" remote="nos" revision="p" />
 
     <!-- qcom -->
     <project path="device/qcom/sepolicy" name="android_device_qcom_sepolicy" remote="nos" revision="p" />
